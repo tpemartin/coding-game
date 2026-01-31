@@ -6,7 +6,7 @@ This app is a static SPA. Your host must rewrite unknown routes to `index.html`.
 
 ## Base path
 
-`vite.config.ts` sets `base = '/usrsoc-3/'` and the router uses the same basename.
+`vite.config.ts` sets `base = '/coding-game/'` and the router uses the same basename.
 
 If you deploy to a different subpath, update both:
 - `vite.config.ts`

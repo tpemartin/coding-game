@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Found</title>
+    <script>
+      ;(function () {
+        var l = window.location
+        var base = '/coding-game/'
+        var path = l.pathname.replace(base, '')
+        var search = l.search ? '&' + l.search.slice(1) : ''
+        l.replace(l.origin + base + '?/' + path + search + l.hash)
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>

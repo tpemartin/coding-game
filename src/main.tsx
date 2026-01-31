@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter basename="/usrsoc-3/">
+      <BrowserRouter basename="/coding-game/">
         <RouteTracker />
         <App />
       </BrowserRouter>

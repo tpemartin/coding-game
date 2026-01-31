@@ -9,6 +9,10 @@ npm install
 npm run dev
 ```
 
+## GitHub Pages
+
+Deployed at `https://tpemartin.github.io/coding-game/`.
+
 Build and preview:
 
 ```bash

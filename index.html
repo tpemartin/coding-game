@@ -19,6 +19,17 @@
         f.parentNode.insertBefore(j, f)
       })(window, document, 'script', 'dataLayer', '%VITE_GTM_ID%')
     </script>
+    <script>
+      ;(function () {
+        var l = window.location
+        if (!l.search.startsWith('?/')) return
+        var q = l.search.slice(2).split('&')
+        var path = q.shift() || ''
+        var search = q.length ? '?' + q.join('&') : ''
+        var base = l.pathname.endsWith('/') ? l.pathname : l.pathname + '/'
+        window.history.replaceState(null, '', base + path + search + l.hash)
+      })()
+    </script>
     <title>usrsoc-3</title>
   </head>
   <body>

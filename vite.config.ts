@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
-const base = '/usrsoc-3/'
+const base = '/coding-game/'
 
 export default defineConfig({
   base,
