@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Container,
   Card,
   CardContent,
-  CardHeader,
   Button,
   LinearProgress,
   Alert,
   Box,
-  Grid,
   Typography,
   Stack,
   Paper,
@@ -260,16 +258,21 @@ export function VerbosReflexivosPage() {
             )}
 
             {/* Game Grid */}
-            <Grid container spacing={2}>
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(4, 1fr)', md: 'repeat(4, 1fr)' },
+                gap: 2,
+              }}
+            >
               {currentSet.map((item) => {
                 const isMatched = matches.includes(item.pair)
                 const isSelected = selectedItems.find((i) => i.id === item.id)
 
                 return (
-                  <Grid item xs={6} sm={4} md={3} key={item.id}>
-                    <Button
-                      fullWidth
-                      disabled={isMatched}
+                  <Button
+                    fullWidth
+                    disabled={isMatched}
                       onClick={() => handleSelect(item)}
                       variant={isSelected ? 'contained' : isMatched ? 'outlined' : 'outlined'}
                       color={isSelected ? 'primary' : 'inherit'}
@@ -295,10 +298,9 @@ export function VerbosReflexivosPage() {
                     >
                       {item.text}
                     </Button>
-                  </Grid>
                 )
               })}
-            </Grid>
+            </Box>
           </Stack>
         )}
 
@@ -336,28 +338,31 @@ export function VerbosReflexivosPage() {
             {/* Content Section */}
             <CardContent sx={{ p: 4 }}>
               {/* Stats Grid */}
-              <Grid container spacing={2} sx={{ mb: 4 }}>
-                <Grid item xs={6} sm={6}>
-                  <Paper sx={{ p: 2, textAlign: 'center', bgcolor: 'action.hover' }}>
-                    <Typography variant="caption" color="textSecondary" sx={{ display: 'block' }}>
-                      Verbs Mastered
-                    </Typography>
-                    <Typography variant="h4" sx={{ fontWeight: 700 }}>
-                      8
-                    </Typography>
-                  </Paper>
-                </Grid>
-                <Grid item xs={6} sm={6}>
-                  <Paper sx={{ p: 2, textAlign: 'center', bgcolor: 'action.hover' }}>
-                    <Typography variant="caption" color="textSecondary" sx={{ display: 'block' }}>
-                      Mistakes
+              <Box
+                sx={{
+                  display: 'grid',
+                  gridTemplateColumns: { xs: '1fr 1fr', sm: '1fr 1fr' },
+                  gap: 2,
+                  mb: 4,
+                }}
+              >
+                <Paper sx={{ p: 2, textAlign: 'center', bgcolor: 'action.hover' }}>
+                  <Typography variant="caption" color="textSecondary" sx={{ display: 'block' }}>
+                    Verbs Mastered
+                  </Typography>
+                  <Typography variant="h4" sx={{ fontWeight: 700 }}>
+                    8
+                  </Typography>
+                </Paper>
+                <Paper sx={{ p: 2, textAlign: 'center', bgcolor: 'action.hover' }}>
+                  <Typography variant="caption" color="textSecondary" sx={{ display: 'block' }}>
+                    Mistakes
                     </Typography>
                     <Typography variant="h4" sx={{ fontWeight: 700 }}>
                       {mistakes}
                     </Typography>
                   </Paper>
-                </Grid>
-              </Grid>
+                </Box>
 
               {/* Action Buttons */}
               <Stack spacing={2} sx={{ mb: 4 }}>
