@@ -10,11 +10,13 @@ import theme from './theme'
 import { initGtm } from './gtm'
 import { registerServiceWorker } from './pwa'
 
+const basePath = import.meta.env.VITE_BASE_PATH || '/coding-game/'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter basename="/coding-game/">
+      <BrowserRouter basename={basePath}>
         <RouteTracker />
         <App />
       </BrowserRouter>
