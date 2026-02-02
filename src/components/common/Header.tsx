@@ -15,7 +15,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 export interface HeaderProps {
   currentPage?: string
   onPageChange?: (page: string) => void
-  pages?: Array<{ id: string; label: string }>
+  pages?: Array<{ id: string; label: string; path: string }>
 }
 
 export function Header({ currentPage = 'verbos', onPageChange, pages }: HeaderProps) {
@@ -30,8 +30,8 @@ export function Header({ currentPage = 'verbos', onPageChange, pages }: HeaderPr
     setNavigationMenuAnchor(null)
   }
 
-  const handlePageSelect = (pageId: string) => {
-    onPageChange?.(pageId)
+  const handlePageSelect = (path: string) => {
+    onPageChange?.(path)
     handleNavigationMenuClose()
   }
 
@@ -106,7 +106,7 @@ export function Header({ currentPage = 'verbos', onPageChange, pages }: HeaderPr
           {pages.map((page) => (
             <MenuItem
               key={page.id}
-              onClick={() => handlePageSelect(page.id)}
+              onClick={() => handlePageSelect(page.path)}
               selected={currentPage === page.id}
             >
               {page.label}
